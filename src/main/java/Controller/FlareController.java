@@ -1,10 +1,16 @@
 package Controller;
 
+import Controller.Repository.FlareRepository;
 import Pojo.BaseMsg;
+import Pojo.Flare;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FlareController {
+
+    @Autowired
+    private FlareRepository repository;
 
     @RequestMapping("/api/flare")
     @ResponseBody
@@ -12,9 +18,15 @@ public class FlareController {
             @RequestHeader(value = "Authorization") String header,
             @RequestParam(value = "longitude") double longitude,
             @RequestParam(value = "lat") double lat,
-            @RequestParam(value = "user_id") int userId,
-            @RequestParam(value = "type") String type) {
+            @RequestParam(value = "user_id") int userId) {
 
-        return new BaseMsg("200");
+        if(repository.findByUserId(userId) != null){
+            System.out.println("removed flare #" + repository.removeByUserId(userId).toString());
+            return new BaseMsg("200");
+        } else {
+            Flare flare = new Flare(longitude,lat,userId);
+            System.out.println("saved " + repository.save(flare).toString());
+            return new BaseMsg("200");
+        }
     }
 }
