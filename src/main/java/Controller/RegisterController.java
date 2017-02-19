@@ -1,6 +1,8 @@
 package Controller;
 
 import Pojo.BaseMsg;
+import Pojo.Credentials;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -8,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RegisterController {
+
+    @Autowired
+    private CredentialsRepository repository;
+
     @RequestMapping("/register")
     @ResponseBody
     public BaseMsg greeting(
@@ -15,6 +21,11 @@ public class RegisterController {
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
 
-        return new BaseMsg("200");
+        if(repository.findByEmail(email) != null){
+            return new BaseMsg("400");
+        } else {
+            System.out.println("saved " + repository.save(new Credentials(name,password,email)).toString());
+            return new BaseMsg("200");
+        }
     }
 }
