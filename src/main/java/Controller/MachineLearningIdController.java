@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class MachineLearningIdController {
 
-    @RequestMapping("/api/getUserIdentification")
+    @RequestMapping("/api/getProductionJson")
     @ResponseBody
     public CompleteIdentification greeting(
             @RequestHeader(value = "Authorization") String header,

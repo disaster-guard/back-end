@@ -23,6 +23,7 @@ public class RegisterController {
             @RequestParam(value = "password") String password) {
 
         if(repository.findByEmail(email) != null){
+            System.out.println("Error with params: name: " + name + ", email: " + email + ", password: " + password);
             return new BaseMsg("400");
         } else {
             System.out.println("saved " + repository.save(new Credentials(name,password,email)).toString());
