@@ -37,7 +37,7 @@ public class LoginController {
     @RequestMapping("/oauth")
     @ResponseBody
     public UserToken greeting(
-            @RequestParam(value = "grant_type") String grantType,
+//            @RequestParam(value = "grant_type") String grantType,
             @RequestParam(value = "client_id") String clientId,
             @RequestParam(value = "clientSecret") String clientSecret,
             @RequestParam(value = "username") String email,
