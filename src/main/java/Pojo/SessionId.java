@@ -1,17 +1,17 @@
 package Pojo;
 
 public class SessionId {
-    String sessionId;
+    int sessionId;
 
-    public SessionId(String sessionId) {
+    public SessionId(int sessionId) {
         this.sessionId = sessionId;
     }
 
-    public String getSessionId() {
+    public int getSessionId() {
         return sessionId;
     }
 
-    public void setSessionId(String sessionId) {
+    public void setSessionId(int sessionId) {
         this.sessionId = sessionId;
     }
 }

@@ -1,23 +1,23 @@
 package Pojo;
 
 public class UserToken {
-    String access_token;
+    int access_token;
 
     String token_type;
 
     int expires_in;
 
-    public UserToken(String access_token) {
+    public UserToken(int access_token) {
         this.access_token = access_token;
         this.token_type = "*";
         this.expires_in = 1000;
     }
 
-    public String getAccess_token() {
+    public int getAccess_token() {
         return access_token;
     }
 
-    public void setAccess_token(String access_token) {
+    public void setAccess_token(int access_token) {
         this.access_token = access_token;
     }
 

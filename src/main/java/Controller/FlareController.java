@@ -18,7 +18,7 @@ public class FlareController {
             @RequestHeader(value = "Authorization") String header,
             @RequestParam(value = "longitude") double longitude,
             @RequestParam(value = "lat") double lat,
-            @RequestParam(value = "user_id") int userId) {
+            @RequestParam(value = "user_id") String userId) {
 
         if(repository.findByUserId(userId) != null){
             System.out.println("removed flare #" + repository.removeByUserId(userId).toString());

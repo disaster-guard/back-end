@@ -57,7 +57,7 @@ public class LoginController {
                 throw new LoginFailedException();
             }
 
-            String id = String.valueOf(UUID.randomUUID());
+            int id = (int) (Math.random() * (50000));
             sessionRepository.save(new SessionId(id));
             return new UserToken(id);
         }
