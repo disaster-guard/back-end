@@ -5,7 +5,7 @@ public class Flare {
     double lat;
     int userId;
 
-    public Flare(double longitude, double lat, String userId) {
+    public Flare(double longitude, double lat, int userId) {
         this.longitude = longitude;
         this.lat = lat;
         this.userId = userId;
