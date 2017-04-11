@@ -39,9 +39,7 @@ public class LoginController {
 
     @RequestMapping("/oauth")
     @ResponseBody
-    public String greeting(
-            HttpServletRequest request,
-            HttpServletResponse response, Model model) {
+    public String greeting(HttpServletRequest request) {
 
 //        if (!this.clientSecret.equals(clientSecret)) {
 //            throw new BadSecretException();
