@@ -59,6 +59,7 @@ public class LoginController {
 //            sessionRepository.save(new SessionId(id));
 //            return new UserToken(id);
 
+        System.out.println(request.getParameter("json"));
         return request.getParameter("json");
 //        }
     }
